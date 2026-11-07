@@ -1,0 +1,13 @@
+{
+  "name": "mlh-dd-agent",
+  "version": "0.1.0-scaffold",
+  "private": true,
+  "description": "Token due-diligence agent — paste a Solana contract address, get a scored 0-100 DD report. MLH Solana Hackathon (Nov 6-8, 2026) scaffold.",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js",
+    "demo": "node src/render-demo.js",
+    "selftest": "node src/selftest.js"
+  },
+  "engines": { "node": ">=18" }
+}
