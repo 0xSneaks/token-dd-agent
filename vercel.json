@@ -1,0 +1,6 @@
+{
+  "functions": {
+    "api/examples.js": { "includeFiles": "public/**" },
+    "api/report.js": { "includeFiles": "public/**" }
+  }
+}
