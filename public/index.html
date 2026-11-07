@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Token DD Agent — scored contract due-diligence reports</title>
+<style>
+ body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;max-width:720px;margin:3rem auto;padding:0 1rem;line-height:1.55;color:#111}
+ input[type=text]{width:100%;padding:.6rem;font-size:1rem;box-sizing:border-box}
+ button{padding:.6rem 1.2rem;font-size:1rem;margin-top:.6rem;cursor:pointer}
+ .muted{color:#666}
+</style></head><body>
+<h1>Token DD Agent</h1>
+<p>Paste a Solana contract address. Get a scored <strong>0–100 due-diligence report</strong>:
+contract safety, holder structure, and price action — every deduction names the on-chain
+field it was read from, and the composite is capped by GMGN's own rug label.</p>
+<form method="get" action="/report">
+  <label for="address">Contract address (Solana)</label>
+  <input type="text" id="address" name="address" placeholder="e.g. paste a mint address…" required>
+  <input type="hidden" name="chain" value="sol">
+  <button type="submit">Score it</button>
+</form>
+<p class="muted">Live GMGN wiring is in (opt-in per request via <code>live=1</code>). See it on real
+tokens in the <a href="/examples">worked-examples gallery</a> — two real reports captured
+2026-10-30 — or review the full template offline on a clearly-labeled fictional sample:
+<a href="/report?demo=1">view the SAMPLE report</a>.</p>
+<p class="muted">Read-only. No wallet, no trading, no custody. A rule-based read of public
+on-chain data, not investment advice.</p>
+</body></html>
