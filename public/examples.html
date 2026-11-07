@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Token DD Agent — worked examples</title>
+<style>
+ body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;max-width:820px;margin:2rem auto;padding:0 1rem;line-height:1.5;color:#111}
+ code{word-break:break-all}.muted{color:#666}
+ .card{border:1px solid #ddd;border-radius:8px;padding:1rem 1.2rem;margin:1.2rem 0}
+ .chip{display:inline-block;font-size:.78rem;font-weight:700;padding:.15rem .55rem;border-radius:999px;letter-spacing:.02em}
+ .real{background:#e6f4ea;border:1px solid #137333;color:#137333}
+ .sample-chip{background:#fff3cd;border:1px solid #b58900;color:#7a5b00}
+ .sample-card{background:#fffdf5;border:2px dashed #b58900;padding:1rem 1.2rem;margin:1.2rem 0;border-radius:8px}
+ .score{font-size:1.5rem}
+ table{border-collapse:collapse}td{padding:.15rem 1.2rem .15rem 0;border-bottom:1px solid #eee}
+ .ded{color:#b3261e;font-weight:700}
+ h1{font-size:1.35rem} h2{font-size:1.15rem;margin:.4rem 0}
+</style></head><body>
+<h1>Worked examples</h1>
+<p>Three reports rendered by this app. The first two are <strong>real</strong>: scored live
+against GMGN through the app's own adapter (<code>/report?address=…&amp;live=1</code>) and
+captured on <strong>2026-10-30</strong>. Token data moves, so re-running the live links today
+may give different numbers — these cards are the 2026-10-30 snapshots, kept as the demo's
+worked examples. The third is the fictional SAMPLE used to demo the template offline.</p>
+<p class="muted">How to read a score: three sections — contract safety, holder structure,
+price action — are scored 0–100 and weighted 0.45 / 0.35 / 0.20. The composite can then be
+<strong>capped</strong>: GMGN's own rug label caps it at 79 when the label is 0.30–0.50, and
+at 59 when it is 0.50 or higher (rubric Step 5B). Bands: 80+ “buyable”, 60–79 “buyable with
+conditions”, 40–59 “not advised”, under 40 “do not buy”. “Buyable” is a transactability /
+rug-exposure read, never a price forecast.</p>
+
+<div class="card">
+<span class="chip real">REAL REPORT · CAPTURED 2026-10-30</span>
+<h2>FLUKE · SOL</h2>
+<p><code>C31uUcfLGPpQDHHieNtDkSWvp4PhNxeSs81cFQFdZVUQ</code></p>
+<p class="score"><strong>79.0 / 100 · buyable with conditions</strong></p>
+<p>contract 88 · holders 78 · price 63 · GMGN rug label 0.338 · confidence: evidence sufficient</p>
+<p><strong>The cap set this score.</strong> The weighted sections land at ≈79.5
+(0.45·88 + 0.35·78 + 0.20·63, from the rounded sub-scores); Step 5B caps any token whose
+GMGN rug label sits in 0.30–0.50 at 79, and FLUKE's label is 0.338 — so the final reads 79.0.</p>
+<h3>Top findings (every deduction names its field)</h3>
+<ul>
+<li>Price 74.8% below the window high — <span class="ded">−30</span></li>
+<li>33.7% of analysed traders tagged entrapment — <span class="ded">−16</span> <span class="muted">(field: <code>stat.top_entrapment_trader_percentage</code>)</span></li>
+<li>Worst single candle −31.1% — <span class="ded">−7</span></li>
+<li>Liquidity $24,866 — <span class="ded">−6</span></li>
+<li>Logo shared with 2 other tokens — <span class="ded">−6</span></li>
+</ul>
+<table>
+<tr><td>Holders</td><td>1,158 addresses</td></tr>
+<tr><td>Liquidity</td><td>$24,866</td></tr>
+<tr><td>GMGN rug label</td><td>0.338 → composite capped at 79</td></tr>
+</table>
+<p><a href="/report?address=C31uUcfLGPpQDHHieNtDkSWvp4PhNxeSs81cFQFdZVUQ&amp;live=1">Re-run this report live</a> (score will reflect current chain data, not this snapshot).</p>
+</div>
+
+<div class="card">
+<span class="chip real">REAL REPORT · CAPTURED 2026-10-30</span>
+<h2>$OV · SOL</h2>
+<p><code>893vJcLg8GssiMQuJ5iY28E7kAoVZnBNXmJHzTmKqCes</code></p>
+<p class="score"><strong>59.0 / 100 · not advised</strong> — contract is fine, the price structure has broken</p>
+<p>contract 70 · holders 68 · price 56 · GMGN rug label 0.94</p>
+<p><strong>The cap set this score — hard.</strong> The weighted sections give ≈66.5
+(0.45·70 + 0.35·68 + 0.20·56, from the rounded sub-scores), which alone would sit in
+“buyable with conditions”. But the rug label is 0.94, and Step 5B caps any label ≥ 0.50
+at 59 — so the final reads 59.0, “not advised”, no matter how the sections scored.</p>
+<h3>Top findings (every deduction names its field)</h3>
+<ul>
+<li>Price 82.3% below the window high — <span class="ded">−30</span></li>
+<li>Deployer has launched 28,985 tokens — <span class="ded">−18</span> <span class="muted">(field: <code>stat.creator_created_count</code>)</span></li>
+<li>25.3% of analysed traders tagged entrapment — <span class="ded">−16</span> <span class="muted">(field: <code>stat.top_entrapment_trader_percentage</code>)</span></li>
+<li>Worst single candle −67.1% — <span class="ded">−14</span></li>
+</ul>
+<table>
+<tr><td>GMGN rug label</td><td>0.94 → composite capped at 59</td></tr>
+</table>
+<p><a href="/report?address=893vJcLg8GssiMQuJ5iY28E7kAoVZnBNXmJHzTmKqCes&amp;live=1">Re-run this report live</a> (score will reflect current chain data, not this snapshot).</p>
+</div>
+
+<div class="sample-card">
+<span class="chip sample-chip">SAMPLE · FICTIONAL — NOT A REAL TOKEN</span>
+<h2>SAMPLEPUP · SOL</h2>
+<p><code>DDagentSAMPLE11111111111111111111111111111</code> (invented address, resolves to nothing)</p>
+<p class="score"><strong>64.9 / 100 · buyable with conditions</strong> — contract is fine, the float is controlled</p>
+<p>This report is rendered from <strong>invented data</strong> chosen to exercise real rubric
+rows (unrenounced freeze authority, bundlers, entrapment traders, a −38% drawdown…). It exists
+so the full report template can be reviewed offline, with no network and no real token.
+It is <strong>not</strong> a real read of a real token.</p>
+<p><a href="/report?demo=1">View the full SAMPLE report</a></p>
+</div>
+
+<p class="muted">Provenance: FLUKE and $OV figures are from the verified live run of
+2026-10-30, scored end-to-end through this app against GMGN (run notes: FLUKE composite
+79.0 capped by rug label 0.338; $OV composite 59.0 capped by rug label 0.94; no rubric
+field was missing for either token). Sub-score arithmetic on this page uses the rubric's
+published weights (0.45 / 0.35 / 0.20) applied to the runs' rounded section scores.</p>
+<p><em>A rule-based read of public on-chain data, not investment advice.</em></p>
+<p><a href="/">← Score a token</a></p>
+</body></html>
