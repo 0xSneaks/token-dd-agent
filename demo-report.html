@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Contract DD · SAMPLEPUP · SOL · SAMPLE</title>
+<style>
+ body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;max-width:820px;margin:2rem auto;padding:0 1rem;line-height:1.5;color:#111}
+ .sample{background:#fff3cd;border:2px dashed #b58900;padding:.6rem 1rem;font-weight:700;text-align:center;margin-bottom:1rem}
+ code{word-break:break-all}.muted{color:#666}.field{color:#666;font-size:.85em}
+ table{border-collapse:collapse}td{padding:.15rem 1.2rem .15rem 0;border-bottom:1px solid #eee}
+ .score{font-size:1.6rem} h1{font-size:1.3rem}
+</style></head><body>
+<div class="sample">SAMPLE REPORT — fictional token, invented data, rendered only to demo the template. Not a real token. Not investment advice.</div>
+<h1>Contract DD · SAMPLEPUP · SOL</h1>
+<p><code>DDagentSAMPLE11111111111111111111111111111</code></p>
+<p class="score"><strong>64.9 / 100 · buyable with conditions</strong> — contract is fine, the float is controlled</p>
+<p>contract 62.0 · holders 53.0 · price 92.0 · age unknown · not in GMGN&#39;s listings for this chain, so no label · confidence: evidence sufficient</p>
+
+<h3>Key numbers</h3>
+<table>
+<tr><td>Liquidity</td><td>$18,420</td></tr>
+<tr><td>Buy / sell tax</td><td>0.0% / 0.0%</td></tr>
+<tr><td>Holders</td><td>342 addresses</td></tr>
+<tr><td>24h volume</td><td>$96,140</td></tr>
+</table>
+
+<h3>Contract safety — can you sell it</h3>
+<ul><li>freeze authority not renounced — holders can be frozen and blocked from selling — <strong>-20</strong> <span class="field">(field read: <code>renounced_freeze_account</code>)</span></li><li>liquidity $18,420 — <strong>-6</strong> <span class="field">(field read: <code>liquidity</code>)</span></li><li>deployer has launched 47 tokens — <strong>-6</strong> <span class="field">(field read: <code>stat.creator_created_count</code>)</span></li><li>logo shared with 1 other token(s) — <strong>-6</strong> <span class="field">(field read: <code>info.image_dup_count</code>)</span></li></ul><p class="muted">4 further check(s) in this section passed.</p>
+<h3>Holder structure — who is holding it</h3>
+<ul><li>top ten holders hold 28.4% — <strong>-6</strong> <span class="field">(field read: <code>top_10_holder_rate</code>)</span></li><li>342 holders — <strong>-5</strong> <span class="field">(field read: <code>info.holder_count</code>)</span></li><li>3.1% of the supply is still held by the creator — <strong>-10</strong> <span class="field">(field read: <code>stat.creator_hold_rate</code>)</span></li><li>18.7% of the analysed traders are bundlers — <strong>-10</strong> <span class="field">(field read: <code>stat.top_bundler_trader_percentage</code>)</span></li><li>23.0% of the analysed traders are tagged as entrapment — <strong>-16</strong> <span class="field">(field read: <code>stat.top_entrapment_trader_percentage</code>)</span></li></ul><p class="muted">5 further check(s) in this section passed.</p>
+<h3>Price action — where the price is</h3>
+<ul><li>price is 41.0% below the window high — <strong>-8</strong> <span class="field">(field read: <code>drawdown = 1 - C[-1]/max(H)</code>)</span></li></ul><p class="muted">3 further check(s) in this section passed.</p>
+
+<h3>How the score moved</h3>
+<ul>
+<li>contract 100 → 62.0: freeze authority not renounced — holders can be frozen and blocked from selling (-20, field: renounced_freeze_account); liquidity $18,420 (-6, field: liquidity); deployer has launched 47 tokens (-6, field: stat.creator_created_count); logo shared with 1 other token(s) (-6, field: info.image_dup_count)</li>
+<li>holders 100 → 53.0: top ten holders hold 28.4% (-6, field: top_10_holder_rate); 342 holders (-5, field: info.holder_count); 3.1% of the supply is still held by the creator (-10, field: stat.creator_hold_rate); 18.7% of the analysed traders are bundlers (-10, field: stat.top_bundler_trader_percentage); 23.0% of the analysed traders are tagged as entrapment (-16, field: stat.top_entrapment_trader_percentage)</li>
+<li>price 100 → 92.0: price is 41.0% below the window high (-8, field: drawdown = 1 - C[-1]/max(H))</li>
+<li>No cap fired: no missing-check cap (Step 2), LP lock present, no rug label in a capping band (Step 5B), no honeypot downgrade (Step 7).</li>
+</ul>
+
+<h3>Limits of this read</h3>
+<ul>
+<li>Scored from GMGN's read of public on-chain data at render time; the window actually scored for price is the last 96 candles.</li>
+
+<li>Coverage decides the confidence label only; it is computed against the rubric's fixed check inventory and is not itself a finding about the token.</li>
+</ul>
+
+<h3>What to do</h3>
+<p><strong>Buy or not</strong> — the band word above is the verdict: buyable with conditions. It answers whether the token can be bought and sold back on what was measured; it is not a position-size recommendation.</p>
+<p><strong>How much to trust this score</strong> — confidence: evidence sufficient. "Buyable" means no measured red flag among the fields this rubric reads and no rug label from GMGN — it never means the price will go up.</p>
+<p><em>A rule-based read of public on-chain data, not investment advice.</em></p>
+</body></html>
